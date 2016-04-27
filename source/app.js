@@ -1,14 +1,11 @@
 angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider) {
     $stateProvider
-      .state('device-inventory', {
-        url: '/device-inventory',
-        controller: 'InventoryCtrl',
+      .state('select-category', {
+        url: '/select-category',
+        controller: 'SelectCategoryCtrl',
         controllerAs: 'ctrl',
-        templateUrl: 'partials/device_inventory.html',
-          resolve: {
-              loginRequired: loginRequired
-          }
+        templateUrl: 'partials/select-category.html'
       })
       .state('login', {
         url: '/login',
@@ -26,50 +23,71 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
           skipIfLoggedIn: skipIfLoggedIn
         }
       })
-        .state('available-devices', {
-            url: '/available-devices',
-            templateUrl: 'partials/available-devices.html',
-            controller: 'AvailDevicesCtrl',
-            controllerAs: 'ctrl',
-            resolve: {
-                loginRequired: loginRequired
-            }
+        .state('select-sub-category', {
+            url: '/select-sub-category',
+            templateUrl: 'partials/select-sub-category.html',
+            controller: 'SelectSubCategoryCtrl',
+            controllerAs: 'ctrl'
         })
-        .state('checked-out', {
-            url: '/checked-out',
-            templateUrl: 'partials/checked-out.html',
-            controller: 'CheckedOutCtrl',
-            controllerAs: 'ctrl',
-            resolve: {
-                loginRequired: loginRequired
-            }
+        .state('category-listings', {
+            url: '/category-listings',
+            templateUrl: 'partials/category-listings.html',
+            controller: 'CategoryListingsCtrl',
+            controllerAs: 'ctrl'
         })
-        .state('add-device', {
-            url: '/add-device',
-            templateUrl: 'partials/add-device.html',
-            controller: 'AddDeviceCtrl',
-            controllerAs: 'ctrl',
-            resolve: {
-                loginRequired: loginRequired
-            }
+        .state('service-listings', {
+            url: '/service-listings',
+            templateUrl: 'partials/service-listings.html',
+            controller: 'ServiceListingsCtrl',
+            controllerAs: 'ctrl'
         })
-        .state('edit-device', {
-            url: '/edit-device',
+        .state('listing-detail', {
+            url: '/listing-detail',
+            templateUrl: 'partials/listing-detail.html',
+            controller: 'ListingDetailCtrl',
+            controllerAs: 'ctrl'
+        })
+        .state('service-detail', {
+            url: '/service-detail',
             params: {
                 device: ''
             },
-            templateUrl: 'partials/edit-device.html',
-            controller: 'EditDeviceCtrl',
-            controllerAs: 'ctrl',
-            resolve: {
-                loginRequired: loginRequired
-            }
+            templateUrl: 'partials/service-detail.html',
+            controller: 'ServiceDetailCtrl',
+            controllerAs: 'ctrl'
         })
         .state('deactivated', {
             url: '/deactivated',
             templateUrl: 'partials/deactivated.html',
             controller: 'DeactivatedCtrl',
             controllerAs: 'ctrl'
+        })
+        .state('add-listing', {
+            url: '/add-listing',
+            templateUrl: 'partials/add-listing.html',
+            controller: 'AddListingCtrl',
+            controllerAs: 'ctrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
+        })
+        .state('edit-listing', {
+            url: '/edit-listing',
+            templateUrl: 'partials/edit-listing.html',
+            controller: 'EditListingCtrl',
+            controllerAs: 'ctrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
+        })
+        .state('manage-listing', {
+            url: '/manage-listing',
+            templateUrl: 'partials/manage-listing.html',
+            controller: 'ManageListingCtrl',
+            controllerAs: 'ctrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
         })
       .state('logout', {
         url: '/logout',
@@ -86,7 +104,7 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
         }
       });
 
-    $urlRouterProvider.otherwise('/available-devices');
+    $urlRouterProvider.otherwise('/select-category');
 
     $authProvider.google({
       clientId: '510557559466-p84g6egngrl4m2smhva0v680o6suaf0c.apps.googleusercontent.com'

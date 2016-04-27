@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>P&L Device List</title>
+  <title>Community Express</title>
   <link href="favicon.png" rel="shortcut icon">
     <link href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
   <link href="//fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600" rel="stylesheet">
@@ -19,7 +19,7 @@
 <div ng-controller="NavbarCtrl as ctrl" class="navbar navbar-default navbar-static-top">
   <nav class ="menu">
     <a href="#/"><img class="main_logo" src="/img/pl_logo.svg" alt="P&L Logo" height="40" width="162"></a>
-    <div class="menu_padding" ng-if="isAuthenticated() && ctrl.Admin == true ">
+    <div class="menu_padding" ng-if="isAuthenticated()">
       <a class="main_link" href="#/device-inventory">Administration</a>
       <a class="main_link" href="#/available-devices">Available Devices</a>
       <a class="main_link" href="#/checked-out">Checked Out</a>
@@ -27,7 +27,7 @@
       <a lass="main_link" href="/#/logout">Logout</a>
 
    </div>
-      <div class="menu_padding_non_admin" ng-if="isAuthenticated() && ctrl.Admin == false">
+      <div class="menu_padding_non_admin" ng-if="isAuthenticated()">
           <a class="main_link" href="#/available-devices">Available Devices</a>
           <a class="main_link" href="#/checked-out">Checked Out</a>
           <a class="last_link" href="#/profile">Profile</a>
@@ -53,17 +53,16 @@
 <script src="/app.js"></script>
 <script src="/directives/passwordStrength.js"></script>
 <script src="/directives/passwordMatch.js"></script>
-<script src="/controllers/InventoryCtrl.js"></script>
-<script src="/controllers/AddDeviceCtrl.js"></script>
-<script src="/controllers/EditDeviceCtrl.js"></script>
-<script src="/controllers/DeactivatedCtrl.js"></script>
+<script src="/controllers/SelectCategoryCtrl.js"></script>
+<script src="/controllers/SelectSubCategoryCtrl.js"></script>
+<script src="/controllers/CategoryListingsCtrl.js"></script>
+<script src="/controllers/ListingDetailCtrl.js"></script>
+<script src="/controllers/ServiceDetailCtrl.js"></script>
 <script src="/controllers/login.js"></script>
 <script src="/controllers/signup.js"></script>
 <script src="/controllers/logout.js"></script>
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>
-<script src="/controllers/AvailDevicesCtrl.js"></script>
-<script src="/controllers/CheckedOutCtrl.js"></script>
 <script src="/services/account.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 module.exports = {
   // App Settings
   MONGO_URI: process.env.MONGO_URI || 'localhost',
-  TOKEN_SECRET: process.env.TOKEN_SECRET || 'g,kj89jh43fguiiu4kJGHIUI4jkhl,5253k',
+  TOKEN_SECRET: process.env.TOKEN_SECRET || 'g,kj89jh43fguiiu4kJdh32HIUI4jkhl,5253k',
 
   // OAuth 2.0
   GOOGLE_SECRET: process.env.GOOGLE_SECRET || 'tmGyOyoIqpXVJousFSqMzkKP',

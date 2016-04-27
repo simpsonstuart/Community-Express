@@ -7,7 +7,6 @@ var header = require('gulp-header');
 var pkg = require('./package.json');
 
 var banner = ['/**',
-  ' * Satellizer <%= pkg.version %>',
   ' * (c) 2016 <%= pkg.author.name %>',
   ' * License: <%= pkg.license %>',
   ' */',
