@@ -80,6 +80,15 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
                 loginRequired: loginRequired
             }
         })
+        .state('manage-account', {
+            url: '/manage-account',
+            templateUrl: 'partials/manage-account.html',
+            controller: 'ManageAccountCtrl',
+            controllerAs: 'ctrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
+        })
         .state('manage-listing', {
             url: '/manage-listing',
             templateUrl: 'partials/manage-listing.html',
