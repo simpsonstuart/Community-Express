@@ -4,36 +4,59 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Community Express</title>
+  <title>Welcome | Community Express</title>
   <link href="favicon.png" rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600" rel="stylesheet">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link href="//cdn.jsdelivr.net/animatecss/3.2.0/animate.css" rel="stylesheet">
   <link href="/stylesheets/angular-toastr.css" rel="stylesheet">
   <link href="/stylesheets/styles.css" rel="stylesheet">
 </head>
 <body>
 <div ng-controller="NavbarCtrl as ctrl" class="navbar navbar-default navbar-static-top">
-  <nav class ="menu">
-    <a href="#/"><img class="main_logo" src="/img/pl_logo.svg" alt="P&L Logo" height="40" width="162"></a>
-    <div class="menu_padding" ng-if="isAuthenticated()">
-      <a class="main_link" href="#/device-inventory">Administration</a>
-      <a class="main_link" href="#/available-devices">Available Devices</a>
-      <a class="main_link" href="#/checked-out">Checked Out</a>
-      <a class="last_link" href="#/profile">Profile</a>
-      <a lass="main_link" href="/#/logout">Logout</a>
+  <nav class= "menu">
+      <div class="links_container">
+          <a class="side_link" href="#/profile">My Account</a>
+          <a class="side_link" href="#/profile">Support</a>
+          <a class="side_link" href="#/profile">About</a>
 
-   </div>
+      </div>
+      <div class="logo_container">
+    <a href="#/"><img class="main_logo" src="/img/ce_logo.png" alt="CE Logo" height="80" width="250"></a>
+      </div>
   </nav>
 </div>
 
 <div ui-view></div>
+<footer class="footer-container">
+    <div class="center-align">
+        <div class="row footer-nav">
+            <div class="tlinks">
+                <ul class="list-inline list-unstyled">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/privacy">Privacy</a></li>
+                    <li><a href="/legal">Legal</a></li>
+                </ul>
+                <p class="copyright">
+                    © 2016 Community Express
+                </p>
+            </div>
+            <div class="social-menu">
+                <ul class="list-inline">
+                    <li><a class="social-icon stwitter" href="http://twitter.com/communityexpress" title="Facebook" target="_blank"></a></li>
+                    <li><a class="social-icon sfacebook" href="http://facebook.com/communityexpress" title="Twitter" target="_blank"></a></li>
+                    <li><a class="social-icon syoutube" href="http://www.youtube.com/user/communityexpress" title="Vimeo" target="_blank"></a></li>
+                </ul>
+            </div>
+        </div> <!-- /.row /.footer-nav -->
+    </div> <!-- /.center-align -->
+</footer> <!-- /#footer -->
 
 <!-- Third-party Libraries -->
-<script src="/bower_components/lodash/dist/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.12.0/lodash.min.js"></script>
 <script src="/vendor/angular.min.js"></script>
 <script src="/vendor/angular-animate.min.js"></script>
 <script src="/vendor/angular-messages.min.js"></script>
