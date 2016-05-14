@@ -996,6 +996,19 @@ app.get('/get_listings',function(req,res){
         });
 });
 
+//gets listings from database
+app.get('/get_categories',function(req,res){
+    // use mongoose to get all devices in the database
+    Devices.find(function(err, devices) {
+
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err)
+            res.send(err);
+
+        res.json(devices); // return all devices in JSON format
+    });
+});
+
 //gets list of users from database
 app.get('/users',function(req,res){
     // use mongoose to get all users in the database

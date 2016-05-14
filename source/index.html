@@ -19,9 +19,9 @@
 <div ng-controller="NavbarCtrl as ctrl" class="navbar navbar-default navbar-static-top">
   <nav class= "menu">
       <div class="links_container">
-          <a class="side_link" href="#/profile">My Account</a>
-          <a class="side_link" href="#/profile">Support</a>
-          <a class="side_link" href="#/profile">About</a>
+          <a class="side_link" ui-sref="profile">My Account</a>
+          <a class="side_link" ui-sref="support">Support</a>
+          <a class="side_link" ui-sref="about">About</a>
 
       </div>
       <div class="logo_container">
@@ -81,6 +81,8 @@
 <script src="/controllers/logout.js"></script>
 <script src="/controllers/profile.js"></script>
 <script src="/controllers/navbar.js"></script>
+<script src="/controllers/SupportCtrl.js"></script>
+<script src="/controllers/AboutCtrl.js"></script>
 <script src="/services/account.js"></script>
 </body>
 </html>

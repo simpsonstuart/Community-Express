@@ -25,6 +25,9 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
       })
         .state('select-sub-category', {
             url: '/select-sub-category',
+            params: {
+                category: ''
+            },
             templateUrl: 'partials/select-sub-category.html',
             controller: 'SelectSubCategoryCtrl',
             controllerAs: 'ctrl'
@@ -111,6 +114,18 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
         resolve: {
           loginRequired: loginRequired
         }
+      })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'partials/about.html',
+            controller: 'AboutCtrl',
+            controllerAs: 'ctrl'
+        })
+      .state('support', {
+          url: '/support',
+          templateUrl: 'partials/support.html',
+          controller: 'SupportCtrl',
+          controllerAs: 'ctrl'
       });
 
     $urlRouterProvider.otherwise('/select-category');
