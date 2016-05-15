@@ -724,6 +724,51 @@ body {
   padding: 20px;
 }
 
+/*squares for sub category */
+.square {
+    float: left;
+    position: relative;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    overflow: hidden;
+    border: solid 1px #888;
+    cursor: pointer;
+}
+
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*5% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    padding: 5%;
+
+}
+.table{
+    display:table;
+    width:100%;
+    height:100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+}
+.sub-icon {
+    font-size: 3.2em;
+    text-align: center;
+}
+.center-align {
+    text-align: center;
+}
+/*  For responsive images */
+
+.content .rs{
+    width:auto;
+    height:auto;
+    max-height:90%;
+    max-width:100%;
+}
+
+
 @media
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {

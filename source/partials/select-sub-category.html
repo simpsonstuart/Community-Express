@@ -2,5 +2,16 @@
   <div class="devices_list">
     <h2>Select a sub-category for {{ctrl.selectedCategory}}</h2>
 
+    <div ng-repeat="subCategory in ctrl.subCategories" class="square">
+      <div class="content">
+        <div class="table">
+          <div class="table-cell">
+            <div class="{{subCategory.icon}} sub-icon"></div>
+            <p class="center-align">{{subCategory.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   </div>
