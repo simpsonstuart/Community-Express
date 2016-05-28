@@ -34,6 +34,10 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
         })
         .state('category-listings', {
             url: '/category-listings',
+            params: {
+                sub_category: '',
+                type: ''
+            },
             templateUrl: 'partials/category-listings.html',
             controller: 'CategoryListingsCtrl',
             controllerAs: 'ctrl'

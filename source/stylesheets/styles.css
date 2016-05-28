@@ -580,32 +580,16 @@ ul {
 
 th,
 td {
-  text-align: left;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 2px;
 }
 
 th {
-  background-color: #4CAF50;
-  color: white;
+  color: #888;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-  box-shadow: 0px 0px 16px 0px rgb(115, 115, 115);
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2
-}
-tr:nth-child(odd) {
-  background-color: #ffffff
-}
-
-tr:hover {
-  background-color: #92C292;
-  cursor: pointer
+    width: 100%;
 }
 
 .devices_list {
@@ -713,11 +697,6 @@ a:hover {
 body {
   background-color: #FFF;
 }
-.td_remove {
-  background-color: #FFFFFF;
-  border-left: solid 1px #888;
-  border-bottom: none;
-}
 .heading_add {
   margin: auto;
   text-align: center;
@@ -733,14 +712,52 @@ body {
     margin: 1.66%;
     overflow: hidden;
     border: solid 1px #888;
-    cursor: pointer;
 }
 
+.listing_square {
+    float: left;
+    position: relative;
+    width: 40%;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    overflow: hidden;
+    border: solid 1px #888;
+}
+.listings_sidebar {
+    float: right;
+    border: solid 1px #888;
+    width: 122px;
+    position: relative;
+    height: 100vh;
+    margin-bottom: 20px;
+}
+.listings_wrapper {
+    padding: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin: auto;
+    width: 100%;
+}
+.filter_text {
+    text-align: center;
+    padding: 4px;
+    border-bottom: solid 1px #888;
+}
+.min_textbox {
+    width: 42px;
+    margin-left: 10px;
+}
+.max_textbox {
+    width: 42px;
+    float: right;
+    margin-right: 10px;
+}
 .content {
     position:absolute;
     height:100%; /* = 100% - 2*5% padding */
     width:100%; /* = 100% - 2*5% padding */
     padding: 5%;
+    cursor: pointer;
 
 }
 .table{
@@ -752,11 +769,19 @@ body {
     display:table-cell;
     vertical-align:middle;
 }
+.listing-cell {
+    display:table-cell;
+    vertical-align:top;
+}
 .sub-icon {
     font-size: 3.2em;
     text-align: center;
 }
 .center-align {
+    text-align: center;
+}
+.title-align {
+   background-color: #D8D8D8;
     text-align: center;
 }
 /*  For responsive images */

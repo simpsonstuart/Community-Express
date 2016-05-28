@@ -1,5 +1,33 @@
 <div>
-    <div class="devices_list">
-        <h2>Checked Out</h2>
+    <div class="listings_wrapper">
+        <h2>Listings for {{ctrl.selectedSubCategory}}</h2>
+        <div class="listings_sidebar">
+            <p class="ion-pricetags filter_text"> Price Range</p>
+            <input class="min_textbox" type="number" ng-model="ctrl.min" placeholder="min">
+            <input class="max_textbox" type="number" ng-model="ctrl.min" placeholder="max">
+        </div>
+        <div ng-repeat="listing in ctrl.listings" ui-sref="listing-detail({ listing_id: listing.id, type: listing.type})" class="listing_square">
+            <div class="content">
+                <div class="table">
+                    <div class="listing-cell">
+                        <p class="title-align">{{listing.title}}</p>
+                        <div class="{{listing.thumb_icon}} sub-icon"></div>
+                        <div class="listing_details">
+
+                            <table>
+                                <tr>
+                                    <th class="ion-pricetag"> Price Range</th>
+                                    <th class="ion-ios-location"> Location</th>
+                                </tr>
+                                <tr>
+                                    <td>{{listing.price_range}}</td>
+                                    <td>{{listing.location}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
   <div class="devices_list">
     <h2>Select a sub-category for {{ctrl.selectedCategory}}</h2>
 
-    <div ng-repeat="subCategory in ctrl.subCategories" class="square">
+    <div ng-repeat="subCategory in ctrl.subCategories" ui-sref="category-listings({ sub_category: subCategory.name, type: subCategory.type})" class="square">
       <div class="content">
         <div class="table">
           <div class="table-cell">
