@@ -738,15 +738,17 @@ body {
     margin: auto;
     width: 100%;
 }
+.listing_description {
+    margin-bottom: 30px;
+}
 .listing_wrapper {
     padding: 30px;
-    padding-left: 20px;
-    padding-right: 10px;
     margin: auto;
     width: 90%;
     margin-bottom: 30px;
     margin-top: 30px;
     border: solid 1px #888;
+    height: 100vh;
 }
 .listing_image_wrapper {
     width: 430px;
@@ -771,6 +773,14 @@ body {
     padding: 4px;
     margin-left: 20px;
     width: initial
+}
+.listing_desc_text {
+    margin-left: 40px;
+    color: #666;
+}
+.listing_req {
+    color: #888;
+    margin-left: 20px;
 }
 .listing_requirements {
     float: right;
