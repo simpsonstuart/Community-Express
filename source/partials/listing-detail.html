@@ -1,6 +1,25 @@
-<div class="devices-list">
-    <h2 class="heading_add">Add a Device</h2>
-    <div class="add_new_device">
-      Post details here
+<div class="listing_wrapper">
+    <h2 class="listing_header">{{ctrl.listing.title}}</h2>
+    <div class="listing_box">
+        <table class="listing_date">
+            <tr>
+                <th class="ion-calendar"> Posted:</th>
+            </tr>
+            <tr>
+                <td>{{ctrl.listing.post_date}}</td>
+            </tr>
+        </table>
+        <table class="listing_location">
+            <tr>
+                <th class="ion-ios-location"> Location</th>
+            </tr>
+            <tr>
+                <td>{{ctrl.listing.location}}</td>
+            </tr>
+        </table>
+        <div class="listing_requirements">
+            <p class="ion-ios-list-outline"> Requirements</p>
+        </div>
+        <div class="listing_image_wrapper"><img class="listing_image" ng-src="ctrl.listing.image"></div>
     </div>
 </div>

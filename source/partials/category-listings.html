@@ -5,15 +5,24 @@
             <p class="ion-pricetags filter_text"> Price Range</p>
             <input class="min_textbox" type="number" ng-model="ctrl.min" placeholder="min">
             <input class="max_textbox" type="number" ng-model="ctrl.min" placeholder="max">
+            <p class="ion-ios-location filter_text"> Location</p>
+            <div class="sidebar_center">
+            <select class="center_select">
+                <option value="volvo">Boise</option>
+            </select>
+            </div>
+            <p class="ion-android-star filter_text"> User Rating</p>
+            <div class="sidebar_center">
+            <img src="">
+         </div>
         </div>
         <div ng-repeat="listing in ctrl.listings" ui-sref="listing-detail({ listing_id: listing.id, type: listing.type})" class="listing_square">
             <div class="content">
                 <div class="table">
                     <div class="listing-cell">
                         <p class="title-align">{{listing.title}}</p>
-                        <div class="{{listing.thumb_icon}} sub-icon"></div>
+                        <div class="{{listing.thumb_icon}} listing_thumbnail"></div>
                         <div class="listing_details">
-
                             <table>
                                 <tr>
                                     <th class="ion-pricetag"> Price Range</th>
@@ -22,6 +31,14 @@
                                 <tr>
                                     <td>{{listing.price_range}}</td>
                                     <td>{{listing.location}}</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <th class="ion-android-star"> Rating</th>
+                                </tr>
+                                <tr>
+                                    <td>{{listing.user_rating}}</td>
                                 </tr>
                             </table>
                         </div>

@@ -738,6 +738,46 @@ body {
     margin: auto;
     width: 100%;
 }
+.listing_wrapper {
+    padding: 30px;
+    padding-left: 20px;
+    padding-right: 10px;
+    margin: auto;
+    width: 90%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: solid 1px #888;
+}
+.listing_image_wrapper {
+    width: 430px;
+}
+.listing_header {
+    border-bottom: solid 1px #888;
+}
+.listing_image {
+    width: 350px;
+    height: 200px;
+    margin: 30px;
+    margin-top: 50px
+}
+.listing_location {
+    float: right;
+    padding: 4px;
+    margin-right: 20px;
+    width: initial
+}
+.listing_date {
+    float: left;
+    padding: 4px;
+    margin-left: 20px;
+    width: initial
+}
+.listing_requirements {
+    float: right;
+    width: 250px;
+    height: 100px;
+    margin-top: 100px;
+}
 .filter_text {
     text-align: center;
     padding: 4px;
@@ -752,13 +792,19 @@ body {
     float: right;
     margin-right: 10px;
 }
+.sidebar_center {
+    margin: auto;
+    width: 90px;
+}
+.center_select {
+    width: 90px;
+}
 .content {
     position:absolute;
     height:100%; /* = 100% - 2*5% padding */
     width:100%; /* = 100% - 2*5% padding */
     padding: 5%;
     cursor: pointer;
-
 }
 .table{
     display:table;
@@ -776,6 +822,11 @@ body {
 .sub-icon {
     font-size: 3.2em;
     text-align: center;
+}
+.listing_thumbnail {
+    font-size: 3.2em;
+    text-align: center;
+    height: 125px;
 }
 .center-align {
     text-align: center;
