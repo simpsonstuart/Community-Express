@@ -1,14 +1,14 @@
 angular.module('MyApp')
-    .controller('SelectSubCategoryCtrl', function($scope, $http, toastr, $stateParams) {
+    .controller('SelectSubCategoryCtrl', function($scope, $http, toastr, $stateParams, $window) {
         var ctrl = this;
-        ctrl.subCategories = [{"id": 1, "name": "Electronics", "icon": "ion-ios-monitor", "type": "good"}, {"id": 1, "name": "Games", "icon": "ion-ios-game-controller-b", "type": "good"}, {"id": 1, "name": "Vehicles", "icon": "ion-model-s", "type": "good"}, {"id": 1, "name": "Books", "icon": "ion-ios-book", "type": "good"}];
+        //ctrl.subCategories = [{"id": 1, "name": "Electronics", "icon": "ion-ios-monitor", "type": "good"}, {"id": 1, "name": "Games", "icon": "ion-ios-game-controller-b", "type": "good"}, {"id": 1, "name": "Vehicles", "icon": "ion-model-s", "type": "good"}, {"id": 1, "name": "Books", "icon": "ion-ios-book", "type": "good"}];
         getSubCategories();
 
-        ctrl.selectedCategory = $stateParams.sub_category;
+        ctrl.selectedCategory = $stateParams.category;
 
         //gets list of devices
         function getSubCategories() {
-            $http.get('http://localhost:3000/get_sub_categories', {"category": ctrl.selectedCategory}).then(function (response) {
+            $http.get('http://localhost:3000/get_sub_categories?category=' + $stateParams.category).then(function (response) {
                 ctrl.subCategories = response.data;
             });
         }

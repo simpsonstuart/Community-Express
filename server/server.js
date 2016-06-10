@@ -15,6 +15,7 @@ var request = require('request');
 
 var config = require('./config');
 
+//defining mongo schemas
 var userSchema = new mongoose.Schema({
   email: { type: String, unique: true, lowercase: true },
   password: { type: String, select: false },
@@ -26,37 +27,31 @@ var userSchema = new mongoose.Schema({
   instagram: String,
   linkedin: String,
   live: String,
-  yahoo: String,
-  twitter: String,
-  twitch: String
+  twitter: String
+});
+
+var sub_categoriesSchema = new mongoose.Schema({
+  name: String,
+  icon: String,
+  type: String,
+  parent_category: String
 });
 
 var listingsSchema = new mongoose.Schema({
-  listing_name: String,
-  listing_type: String,
-  listing_picture: String,
-  listing_time: String,
-  listing_price: String,
-  listing_location: String,
-  listing_user: String,
-  listing_description: String,
-  listing_model: String,
-  listing_manufacturer: String,
-  listing_url :String
+    title: String,
+    thumb_icon: String,
+    type: String,
+    category: String,
+    price_range: String,
+    location: String,
+    buyer_rating: String,
+    post_date: String,
+    details: String,
+    requirements: String,
+    payment_methods: String
+
 });
 
-var servicesSchema = new mongoose.Schema({
-    service_name: String,
-    service_type: String,
-    service_logo: String,
-    service_times: String,
-    service_price: String,
-    service_price_type: String,
-    service_locations: String,
-    service_user: String,
-    service_url: String,
-    service_description: String
-});
 
 userSchema.pre('save', function(next) {
   var user = this;
@@ -79,7 +74,7 @@ userSchema.methods.comparePassword = function(password, done) {
 
 var User = mongoose.model('User', userSchema);
 var Listings = mongoose.model('Listings', listingsSchema);
-var Services = mongoose.model('Services', servicesSchema);
+var sub_categories = mongoose.model('sub_categories', sub_categoriesSchema);
 
 mongoose.connect(config.MONGO_URI);
 mongoose.connection.on('error', function(err) {
@@ -986,9 +981,7 @@ app.post('/deleteuser',function(req,res) {
 //gets listings from database
 app.get('/get_listings',function(req,res){
         // use mongoose to get all devices in the database
-        Devices.find(function(err, devices) {
-
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        Listings.find({ category: req.query.category }, function(err, devices) {
             if (err)
                 res.send(err);
 
@@ -996,12 +989,9 @@ app.get('/get_listings',function(req,res){
         });
 });
 
-//gets listings from database
-app.get('/get_categories',function(req,res){
-    // use mongoose to get all devices in the database
-    Devices.find(function(err, devices) {
-
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+//gets sub categories for selected category from database
+app.get('/get_sub_categories',function(req,res){
+    sub_categories.find({ parent_category: req.query.category }, function(err, devices) {
         if (err)
             res.send(err);
 
