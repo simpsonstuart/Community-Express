@@ -1,6 +1,11 @@
 angular.module('MyApp')
-    .controller('ListingDetailCtrl', function($scope, $http, $state) {
+    .controller('ListingDetailCtrl', function($scope, $http, $stateParams) {
         var ctrl = this;
-        ctrl.listing = {"title": "Looking for used GalaxyS 7", "post_date": "5/17/2016", "location": "Boise, Idaho"};
-        //add logic to get listing details
+        //gets details of listing
+        $http.get('http://localhost:3000/listing_details?listing_id=' + $stateParams.listing_id).then(function (response) {
+            ctrl.listing = response.data;
+            if(response.data.type === 'good') {
+                ctrl.isGood = true;
+            }
+        });
     });

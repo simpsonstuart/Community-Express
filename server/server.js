@@ -49,7 +49,6 @@ var listingsSchema = new mongoose.Schema({
     details: String,
     requirements: String,
     payment_methods: String
-
 });
 
 
@@ -859,56 +858,41 @@ app.post('/auth/bitbucket', function(req, res) {
 });
 
 
-//endpoint for add listing
-app.post('/add_listing',function(req,res) {
-    Devices.create({
-        device_name : req.body.device_name,
-        device_type : req.body.device_type,
-        device_sn : req.body.device_sn,
-        device_manufacturer : req.body.device_manufacturer,
-        device_model : req.body.device_model,
-        sw_version : req.body.sw_version,
-        screen_resolution : req.body.screen_resolution,
-        device_ram : req.body.device_ram,
-        checked_out_user : 'N/A',
+//endpoint for add sub category
+app.post('/add_sub_category', ensureAuthenticated, function(req,res) {
+    sub_categories.create({
+        name : req.body.name,
+        icon : req.body.icon,
+        type : req.body.type,
+        parent_category : req.body.parent_category,
         done : false
-    }, function(err, devices) {
+    }, function(err) {
         if (err)
             res.send(err);
-
-        // get and return all the devices after you create another
-        Devices.find(function(err, devices) {
-            if (err)
-                res.send(err);
-            res.json(devices);
-        });
     });
+    res.status(200).end();
 });
 
-//endpoint for checkout
-app.post('/checkout', ensureAuthenticated, function(req, res) {
-  Devices.findById(req.body.id, function(err, Devices) {
-    if (!Devices) {
-      return res.status(400).send({ message: 'Device not found' });
-    }
-    Devices.checked_out_user = req.body.checked_out_user;
-    Devices.save(function(err) {
-      res.status(200).end();
+//endpoint for add listings
+app.post('/add_listing', ensureAuthenticated, function(req,res) {
+    Listings.create({
+        title : req.body.title,
+        thumb_icon : req.body.thumb_icon,
+        type : req.body.type,
+        category : req.body.category,
+        price_range : req.body.price_range,
+        location : req.body.location,
+        buyer_rating : req.body.buyer_rating,
+        post_date : req.body.post_date,
+        details : req.body.details,
+        requirements : req.body.requirements,
+        payment_methods : req.body.payment_methods,
+        done : false
+    }, function(err) {
+        if (err)
+            res.send(err);
     });
-  });
-});
-
-//endpoint for checkout
-app.post('/checkindevice', ensureAuthenticated, function(req, res) {
-    Devices.findById(req.body.id, function(err, Devices) {
-        if (!Devices) {
-            return res.status(400).send({ message: 'Device not found' });
-        }
-        Devices.checked_out_user = 'N/A';
-        Devices.save(function(err) {
-            res.status(200).end();
-        });
-    });
+    res.status(200).end();
 });
 
 //endpoint for set role
@@ -945,7 +929,7 @@ app.post('/update_listing', ensureAuthenticated, function(req, res) {
 });
 
 //endpoint for remove listing
-app.post('/remove_listing',function(req,res) {
+app.post('/remove_listing', ensureAuthenticated, function(req,res) {
     Devices.remove({
         _id : req.body.id
     }, function(err, devices) {
@@ -962,7 +946,7 @@ app.post('/remove_listing',function(req,res) {
 });
 
 //endpoint for delete user
-app.post('/deleteuser',function(req,res) {
+app.post('/deleteuser', ensureAuthenticated, function(req,res) {
     User.remove({
         _id : req.body.id
     }, function(err, user) {
@@ -980,27 +964,33 @@ app.post('/deleteuser',function(req,res) {
 
 //gets listings from database
 app.get('/get_listings',function(req,res){
-        // use mongoose to get all devices in the database
-        Listings.find({ category: req.query.category }, function(err, devices) {
+        Listings.find({ category: req.query.category }, function(err, listings) {
             if (err)
                 res.send(err);
-
-            res.json(devices); // return all devices in JSON format
+            res.json(listings);
         });
 });
 
 //gets sub categories for selected category from database
 app.get('/get_sub_categories',function(req,res){
-    sub_categories.find({ parent_category: req.query.category }, function(err, devices) {
+    sub_categories.find({ parent_category: req.query.category }, function(err, subCategories) {
+        if (err)
+            res.send(err);
+        res.json(subCategories);
+    });
+});
+//gets details of listing
+app.get('/listing_details',function(req,res){
+    Listings.findById(req.query.listing_id, function(err, listing_details) {
         if (err)
             res.send(err);
 
-        res.json(devices); // return all devices in JSON format
+        res.json(listing_details);
     });
 });
 
 //gets list of users from database
-app.get('/users',function(req,res){
+app.get('/users', ensureAuthenticated, function(req,res){
     // use mongoose to get all users in the database
     User.find(function(err, users) {
 

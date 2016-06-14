@@ -50,6 +50,9 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
         })
         .state('listing-detail', {
             url: '/listing-detail',
+            params: {
+                listing_id: ''
+            },
             templateUrl: 'partials/listing-detail.html',
             controller: 'ListingDetailCtrl',
             controllerAs: 'ctrl'

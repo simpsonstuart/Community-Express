@@ -625,9 +625,9 @@ h2 {
   font-weight: normal;
 }
 
-.input_style {
+input {
   padding: 7px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   color: #555;
   border-radius: 3px;
   background-color: #fff;
@@ -637,7 +637,7 @@ h2 {
   transition: border linear .2s, box-shadow linear .2s;
 }
 
-.input_style:focus {
+input:focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   outline: thin dotted \9;
@@ -725,7 +725,7 @@ body {
 }
 .listings_sidebar {
     float: right;
-    border: solid 1px #888;
+    border: solid 1px #BBB;
     width: 122px;
     position: relative;
     height: 100vh;
@@ -853,6 +853,12 @@ body {
     max-height:90%;
     max-width:100%;
 }
+.add_listing_form {
+    width: 250px;
+    margin-left: 100px;
+    padding: 20px;
+}
+
 
 
 @media

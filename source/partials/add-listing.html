@@ -1,18 +1,10 @@
 <div class="container">
   <div class="panel panel-default">
-    <div class="panel-heading">Account Options</div>
+    <div class="panel-heading">Add Listing</div>
     <div class="panel-body">
-     <form>
-         <h2>Test Add Sub Categories</h2>
-         <input type="text" placeholder="Name" ng-model="ctrl.name">
-         <input type="text" placeholder="Type" ng-model="ctrl.type">
-         <input type="text" placeholder="Icon" ng-model="ctrl.icon">
-         <input type="text" placeholder="Parent" ng-model="ctrl.parent_category">
-         <button ng-click="ctrl.addSubCategory()">Add Sub Category</button>
-     </form>
     </div>
       <div class="panel-body">
-          <form>
+          <form class="add_listing_form">
               <input type="text" placeholder="Title" ng-model="ctrl.title">
               <input type="text" placeholder="Thumb Icon" ng-model="ctrl.thumb_icon">
               <input type="text" placeholder="Type" ng-model="ctrl.listing_type">
@@ -21,7 +13,7 @@
               <input type="text" placeholder="Buyer Rating" ng-model="ctrl.buyer_rating">
               <input type="date" placeholder="Post Date" ng-model="ctrl.post_date">
               <input type="text" placeholder="Price Range" ng-model="ctrl.price_range">
-              <input type="text" placeholder="Details" ng-model="ctrl.details">
+              <textarea rows="4" cols="50" placeholder="Details" ng-model="ctrl.details"></textarea>
               <input type="text" placeholder="Requirements" ng-model="ctrl.requirements">
               <input type="text" placeholder="Price Range" ng-model="ctrl.payment_methods">
               <button ng-click="ctrl.addListing()">Add Listing</button>

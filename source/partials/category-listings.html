@@ -16,7 +16,7 @@
             <img src="">
          </div>
         </div>
-        <div ng-repeat="listing in ctrl.listings" ui-sref="listing-detail({ listing_id: listing.id, type: listing.type})" class="listing_square">
+        <div ng-repeat="listing in ctrl.listings" ui-sref="listing-detail({ listing_id: listing._id})" class="listing_square">
             <div class="content">
                 <div class="table">
                     <div class="listing-cell">
@@ -25,7 +25,8 @@
                         <div class="listing_details">
                             <table>
                                 <tr>
-                                    <th class="ion-pricetag"> Price Range</th>
+                                    <th ng-if="listing.type =='good'" class="ion-pricetag"> Price Range</th>
+                                    <th ng-if="listing.type =='service'" class="ion-social-usd"> Desired Pay</th>
                                     <th class="ion-ios-location"> Location</th>
                                 </tr>
                                 <tr>
