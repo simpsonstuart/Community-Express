@@ -1,23 +1,35 @@
 <div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">Add Listing</div>
-    <div class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-heading">Add Listing</div>
+        <div class="panel-body">
+        </div>
+        <div class="panel-body">
+            <form class="add_listing_form">
+                <input type="text" placeholder="Title" ng-model="ctrl.title" required>
+                <select class="select_normal">
+                    <option value="good" ng-model="ctrl.listing_type">Good</option>
+                    <option value="service" ng-model="ctrl.listing_type">Service</option>
+                </select>
+                <input type="text" placeholder="Thumb Icon" ng-model="ctrl.thumb_icon">
+                <input type="text" placeholder="Category" ng-model="ctrl.category">
+                <select class="select_normal">
+                    <option ng-repeat="category in ctrl.categoryOptions" value="{{category}}" ng-model="ctrl.category">{{category}}</option>
+                </select>
+                <input type="text" placeholder="Location" ng-model="ctrl.location">
+                <input type="date" placeholder="Post Date" ng-model="ctrl.post_date">
+                <input type="text" placeholder="Price Range" ng-model="ctrl.price_range">
+                <textarea rows="4" cols="50" placeholder="Details" ng-model="ctrl.details" required></textarea>
+                <input type="text" placeholder="Requirements" ng-model="ctrl.requirements">
+                <div class="payment_method_holder">
+                    <label for="Paypal">Paypal</label>
+                    <input class="input_checks" type="checkbox" id="Paypal" value="Paypal" ng-check="ctrl.arrayAdd('Paypal')"/>
+                    <label for="Cash">Cash</label>
+                    <input class="input_checks" type="checkbox" id="Cash" value="Paypal" ng-check="ctrl.arrayAdd('Cash')"/>
+                    <label for="Check">Cashiers Check</label>
+                    <input class="input_checks" type="checkbox" id="Check" value="Check" ng-check="ctrl.arrayAdd('Check')"/>
+                </div>
+                <button ng-click="ctrl.addListing()">Add Listing</button>
+            </form>
+        </div>
     </div>
-      <div class="panel-body">
-          <form class="add_listing_form">
-              <input type="text" placeholder="Title" ng-model="ctrl.title">
-              <input type="text" placeholder="Thumb Icon" ng-model="ctrl.thumb_icon">
-              <input type="text" placeholder="Type" ng-model="ctrl.listing_type">
-              <input type="text" placeholder="Category" ng-model="ctrl.category">
-              <input type="text" placeholder="Location" ng-model="ctrl.location">
-              <input type="text" placeholder="Buyer Rating" ng-model="ctrl.buyer_rating">
-              <input type="date" placeholder="Post Date" ng-model="ctrl.post_date">
-              <input type="text" placeholder="Price Range" ng-model="ctrl.price_range">
-              <textarea rows="4" cols="50" placeholder="Details" ng-model="ctrl.details"></textarea>
-              <input type="text" placeholder="Requirements" ng-model="ctrl.requirements">
-              <input type="text" placeholder="Price Range" ng-model="ctrl.payment_methods">
-              <button ng-click="ctrl.addListing()">Add Listing</button>
-          </form>
-      </div>
-  </div>
 </div>

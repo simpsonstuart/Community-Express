@@ -5,12 +5,8 @@ angular.module('MyApp')
         .then(function() {
             Account.getProfile()
                 .then(function (response) {
-                    if (response.data.role !== "Deactivated") {
-                        toastr.success('You have successfully signed in!');
-                        $state.go('available-devices', {}, {reload: true});
-                    } else {
-                        $state.go('deactivated');
-                    }
+                        toastr.success('Login Succeeded!');
+                        $state.go('profile', {}, {reload: true});
                 })
                 .catch(function (response) {
                     toastr.error(response.data.message, response.status);
@@ -25,12 +21,8 @@ angular.module('MyApp')
         .then(function() {
             Account.getProfile()
                 .then(function (response) {
-                    if (response.data.role !== "Deactivated") {
                         toastr.success('You have successfully signed in with ' + provider + '!');
-                        $state.go('available-devices', {}, {reload: true});
-                    } else {
-                        $state.go('deactivated');
-                    }
+                        $state.go('profile', {}, {reload: true});
                 })
                 .catch(function (response) {
                     toastr.error(response.data.message, response.status);

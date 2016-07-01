@@ -1,14 +1,10 @@
 <div class="listing_wrapper">
     <h2 class="listing_header">{{ctrl.listing.title}}</h2>
     <div class="listing_box">
-        <table class="listing_date">
-            <tr>
-                <th class="ion-calendar"> Posted:</th>
-            </tr>
-            <tr>
-                <td>{{ctrl.listing.post_date}}</td>
-            </tr>
-        </table>
+        <div class="listing_description">
+            <p class="ion-calendar listing_req"> Posted:</p>
+            <p class="listing_desc_text">{{ctrl.listing.post_date | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+        </div>
         <table class="listing_location">
             <tr>
                 <th class="ion-ios-location"> Location</th>
@@ -19,6 +15,9 @@
         </table>
         <div class="listing_requirements">
             <p class="ion-ios-list-outline listing_req"> Requirements</p>
+            <ul class="ul_requirements">
+                <li ng-repeat="item in ctrl.listing.requirements track by $index">{{item}}</li>
+            </ul>
         </div>
         <div class="listing_image_wrapper"><img class="listing_image" ng-src="ctrl.listing.image"></div>
         <div class="listing_description">

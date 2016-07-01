@@ -108,6 +108,15 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
                 loginRequired: loginRequired
             }
         })
+        .state('buyer-profile', {
+            url: '/buyer-profile',
+            templateUrl: 'partials/buyer-profile.html',
+            controller: 'BuyerProfileCtrl',
+            controllerAs: 'ctrl',
+            resolve: {
+                loginRequired: loginRequired
+            }
+        })
       .state('logout', {
         url: '/logout',
         template: null,
