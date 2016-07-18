@@ -5,6 +5,7 @@ angular.module('MyApp')
         //gets list of devices
             $http.get('http://localhost:3000/get_listings?category=' + $stateParams.sub_category).then(function (response) {
                 ctrl.listings = response.data;
+                console.log(response);
             });
     });
 

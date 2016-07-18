@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer'])
+angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ngMaterial'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider) {
     $stateProvider
       .state('select-category', {
@@ -24,20 +24,13 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
         }
       })
         .state('select-sub-category', {
-            url: '/select-sub-category',
-            params: {
-                category: ''
-            },
+            url: '/select-sub-category?category',
             templateUrl: 'partials/select-sub-category.html',
             controller: 'SelectSubCategoryCtrl',
             controllerAs: 'ctrl'
         })
         .state('category-listings', {
-            url: '/category-listings',
-            params: {
-                sub_category: '',
-                type: ''
-            },
+            url: '/category-listings?sub_category&type',
             templateUrl: 'partials/category-listings.html',
             controller: 'CategoryListingsCtrl',
             controllerAs: 'ctrl'
@@ -49,19 +42,13 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
             controllerAs: 'ctrl'
         })
         .state('listing-detail', {
-            url: '/listing-detail',
-            params: {
-                listing_id: ''
-            },
+            url: '/listing-detail?listing_id',
             templateUrl: 'partials/listing-detail.html',
             controller: 'ListingDetailCtrl',
             controllerAs: 'ctrl'
         })
         .state('service-detail', {
-            url: '/service-detail',
-            params: {
-                device: ''
-            },
+            url: '/service-detail?device',
             templateUrl: 'partials/service-detail.html',
             controller: 'ServiceDetailCtrl',
             controllerAs: 'ctrl'
@@ -73,7 +60,7 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
             controllerAs: 'ctrl'
         })
         .state('add-listing', {
-            url: '/add-listing',
+            url: '/add-listing?user',
             templateUrl: 'partials/add-listing.html',
             controller: 'AddListingCtrl',
             controllerAs: 'ctrl',
@@ -100,7 +87,7 @@ angular.module('MyApp', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.
             }
         })
         .state('manage-listing', {
-            url: '/manage-listing',
+            url: '/manage-listing?user',
             templateUrl: 'partials/manage-listing.html',
             controller: 'ManageListingCtrl',
             controllerAs: 'ctrl',

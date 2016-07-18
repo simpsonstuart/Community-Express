@@ -693,7 +693,7 @@ input:focus {
   cursor: pointer;
 }
 a {
-  color: #D6D3D3;
+  color: #D6D3D3!important;
 }
 a:hover {
   color: #0b97c4;

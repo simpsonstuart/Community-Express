@@ -1,33 +1,12 @@
 angular.module('MyApp')
   .controller('ProfileCtrl', function($scope, $auth, toastr, Account, $http) {
       var ctrl            = this;
-      ctrl.selectedSort = 'device_name';
-      getDevices();
-
-      //gets list of devices that I have checked out
-      function getDevices() {
-          Account.getProfile()
-              .then(function(response) {
-                  $http.get('http://localhost:3000/devices').success(function (data) {
-                      ctrl.devices = _.filter(data, ['checked_out_user', response.data.displayName]);
-                  });
-              })
-              .catch(function(response) {
-                  toastr.error(response.data.message, response.status);
-              });
-      }
-
-      ctrl.checkInDevice = function (deviceId) {
-          $http.post('http://localhost:3000/checkindevice', {id: deviceId}).success(function(data, status) {
-              getDevices();
-              toastr.success('Device Checked In');
-          });
-      };
 
     $scope.getProfile = function() {
       Account.getProfile()
         .then(function(response) {
           $scope.user = response.data;
+            console.log(response);
         })
         .catch(function(response) {
           toastr.error(response.data.message, response.status);

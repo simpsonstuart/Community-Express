@@ -46,6 +46,8 @@ var listingsSchema = new mongoose.Schema({
     location: String,
     buyer_rating: String,
     post_date: String,
+    updated_at: String,
+    created_by_user: String,
     details: String,
     requirements: String,
     payment_methods: String
@@ -870,7 +872,7 @@ app.post('/add_sub_category', ensureAuthenticated, function(req,res) {
         if (err)
             res.send(err);
     });
-    res.status(200).end();
+    res.status(201).end();
 });
 
 //endpoint for add listings
@@ -884,6 +886,8 @@ app.post('/add_listing', ensureAuthenticated, function(req,res) {
         location : req.body.location,
         buyer_rating : req.body.buyer_rating,
         post_date : req.body.post_date,
+        updated_at: req.body.updated_at,
+        created_by_user: req.body.created_by_user,
         details : req.body.details,
         requirements : req.body.requirements,
         payment_methods : req.body.payment_methods,
@@ -892,7 +896,7 @@ app.post('/add_listing', ensureAuthenticated, function(req,res) {
         if (err)
             res.send(err);
     });
-    res.status(200).end();
+    res.status(201).end();
 });
 
 //endpoint for set role
@@ -928,21 +932,16 @@ app.post('/update_listing', ensureAuthenticated, function(req, res) {
     });
 });
 
-//endpoint for remove listing
-app.post('/remove_listing', ensureAuthenticated, function(req,res) {
-    Devices.remove({
-        _id : req.body.id
-    }, function(err, devices) {
+// endpoint for remove listing
+app.delete('/remove_listing', ensureAuthenticated, function(req,res) {
+    Listings.remove({
+        _id : req.body.listing
+    }, function(err) {
         if (err)
             res.send(err);
 
-        // get and return all the todos after you create another
-        Devices.find(function(err, devices) {
-            if (err)
-                res.send(err);
-            res.json(devices);
-        });
     });
+    res.status(200).end();
 });
 
 //endpoint for delete user
@@ -970,6 +969,15 @@ app.get('/get_listings',function(req,res){
             res.json(listings);
         });
 });
+//gets listings from database for user
+app.get('/get_user_listings',function(req,res){
+    Listings.find({ created_by_user: req.query.user }, function(err, listings) {
+        if (err)
+            res.send(err);
+        res.json(listings);
+    });
+});
+
 
 //gets sub categories for selected category from database
 app.get('/get_sub_categories',function(req,res){
